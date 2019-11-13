@@ -1,0 +1,19 @@
+
+.App {
+    margin: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+.search-bar{
+  margin: auto auto;
+}
+.form{
+  display: flex;
+  margin-top: 45vh;
+  margin-left: 30vw;
+}
+.field{
+  margin-right: 2vw;
+}
+li{
+  display: block;  
+}
