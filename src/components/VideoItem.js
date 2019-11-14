@@ -3,7 +3,7 @@ import "../styles/video.css";
 
 const VideoItem = ({ video, handleVideoSelect }) => {
   return (
-    <div onClick={() => handleVideoSelect(video)} className=" video-item item">
+    <div className=" video-item item">
       <row className="row">
         <img
           className="ui image"
@@ -11,8 +11,11 @@ const VideoItem = ({ video, handleVideoSelect }) => {
           alt={video.snippet.description}
         />
         <div className="content">
-          <div className="header">{video.snippet.title}</div>
+          <h3 className="header">{video.snippet.title}</h3>
+          <div className="header">{video.snippet.channelTitle}</div>
+          <p className="header">{video.snippet.description}</p>
         </div>
+        <button onClick={() => handleVideoSelect(video)} >Detalhes do vídeo</button>
       </row>
     </div>
   );

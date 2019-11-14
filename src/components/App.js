@@ -5,25 +5,39 @@ import SearchBar from "./SearchBar";
 import youtube from '../services/youtube';
 import VideoList from './VideoList';
 import VideoDetail from './VideoDetail';
+import BottomScrollListener from 'react-bottom-scroll-listener';
+ 
+
 class App extends Component {
   state = {
+            searchFieldFromSearchBar:null,
+            nextPageToken: null,
             videos: [],
             selectedVideo: null
         }
         handleSubmit = async (searchFieldFromSearchBar) => {
-          
+          if (this.state.searchFieldFromSearchBar == null) {
+            this.setState({
+              searchFieldFromSearchBar:searchFieldFromSearchBar
+            })
+          }
           const response = await youtube.get('/search', {
-            params: {
+            params: this.state.nextPageToken == null ? {
               ...youtube.defaults.params,
               q: searchFieldFromSearchBar,
-              
+            }: {
+              ...youtube.defaults.params,
+              pageToken : this.state.nextPageToken,
+              q: this.state.searchFieldFromSearchBar,
             }
             
           })
+          //debugger
           console.log(response);
                       
             this.setState({
-                videos: response.data.items
+                videos: response.data.items,
+                nextPageToken:response.data.nextPageToken
             })
         };
         handleVideoSelect = (video) => {
@@ -47,9 +61,11 @@ class App extends Component {
                   
                   <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
               </div>
+              
               </div>
           </div>
         </div>
+        <BottomScrollListener onBottom={this.handleSubmit} />
       </div>
     );
   }

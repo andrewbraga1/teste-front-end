@@ -5,6 +5,7 @@
   }
 .search-bar{
   margin: auto auto;
+  margin-bottom: 2vh;
 }
 .form{
   display: flex;
