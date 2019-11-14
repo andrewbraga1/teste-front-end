@@ -9,11 +9,15 @@
 .form{
   display: flex;
   margin-top: 45vh;
-  margin-left: 30vw;
+  margin-left: 8vw;
+  margin-right: 8vw;
 }
 .field{
   margin-right: 2vw;
 }
 li{
   display: block;  
+}
+.results{
+  margin-top: 8vh;
 }
