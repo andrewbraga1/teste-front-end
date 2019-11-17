@@ -10,8 +10,9 @@
 }
 .header{
     color: white;
-    font-weight: bold;
+    font-weight: bold;margin-bottom: 1vh;
+    /* word-wrap:break-word; */
 }
-.row{
+.mb{
     margin-bottom: 2vh;
 }

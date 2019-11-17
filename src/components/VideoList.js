@@ -1,13 +1,19 @@
-import React from 'react';
-import VideoItem from './VideoItem.js';
+import React from "react";
+import VideoItem from "./VideoItem.js";
+//import "../styles/video.css";
+const VideoList = ({ videos, handleVideoSelect }) => {
+  const renderedVideos = videos.map(video => {
+    return (
+      <div className="">
+        <VideoItem
+          key={video.id.videoId}
+          video={video}
+          handleVideoSelect={handleVideoSelect}
+        />
+      </div>
+    );
+  });
 
-const VideoList = ({videos , handleVideoSelect}) => {
-    const renderedVideos =  videos.map((video) => {
-        return <li  key={video.id.videoId}>
-            <VideoItem key={video.id.videoId} video={video} handleVideoSelect={handleVideoSelect} />
-            </li>
-    });
-
-    return <div className='ui relaxed divided list'>{renderedVideos}</div>;
+  return <div className="ui relaxed divided list">{renderedVideos}</div>;
 };
 export default VideoList;

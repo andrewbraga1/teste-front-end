@@ -3,20 +3,26 @@ import "../styles/video.css";
 
 const VideoItem = ({ video, handleVideoSelect }) => {
   return (
-    <div className=" video-item item">
-      <row className="row">
+    <div className="video-item item">
+      <div className="mb">
         <img
           className="ui image"
           src={video.snippet.thumbnails.medium.url}
           alt={video.snippet.description}
         />
         <div className="content">
-          <h3 className="header">{video.snippet.title}</h3>
+          <div>
+            <p className="header mb">{video.snippet.title}</p>
+          </div>
           <div className="header">{video.snippet.channelTitle}</div>
-          <p className="header">{video.snippet.description}</p>
         </div>
-        <button onClick={() => handleVideoSelect(video)} >Detalhes do vídeo</button>
-      </row>
+        <div className="desc">
+          <h5 className="header">{video.snippet.description}</h5>
+          <button onClick={() => handleVideoSelect(video)}>
+            Detalhes do vídeo
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,15 @@
   margin: auto auto;
   margin-bottom: 2vh;
 }
+.width{
+  width:30vw;
+  height:6vh;
+  max-width: 35vw;
+  margin-bottom: 2vh;
+}
+.desc{
+  margin-top: 8vh;
+}
 .form{
   display: flex;
   margin-top: 45vh;
@@ -21,7 +30,13 @@ li{
 .results{
   margin-top: 8vh;
 }
-
+.center{
+  text-align: center;
+}
+.emoji{
+  font-size:50px;
+  margin: 35vw;
+}
 
 /* ########################################################### */
 
