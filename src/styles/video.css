@@ -12,7 +12,37 @@
     color: white;
     font-weight: bold;margin-bottom: 1vh;
     /* word-wrap:break-word; */
+    font-size: medium;
 }
 .mb{
     margin-bottom: 2vh;
+}
+.detail{
+    margin-left: 3vw;
+}
+.arrow{
+    color: white;
+}
+.head{
+    display: flex;
+}
+.data{
+    display: contents;
+    margin-left: 1vw;
+}
+.specifics{
+    padding-left: 40vw;
+    margin-right: 1vw;
+    display: flex;
+}
+svg{
+    margin-right: 1vw;
+}
+
+iframe{
+    width: -webkit-fill-available;
+}
+row{
+    margin-top: 2vh;
+    display: flex;
 }

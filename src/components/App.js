@@ -10,6 +10,7 @@ import BottomScrollListener from "react-bottom-scroll-listener";
 var changed = false;
 class App extends Component {
   state = {
+    statistics: {},
     searchFieldFromSearchBar: null,
     nextPageToken: null,
     videos: [],
@@ -20,6 +21,25 @@ class App extends Component {
     const element = document.getElementById("search-film");
     element.classList.add("animated", "slideOutUp");
   };
+
+  handleStatistics = async video => {
+    const response = await youtube.get("/videos", {
+      params: {
+        ...youtube.defaults.params,
+        part: "snippet,statistics",
+        id: video.id.videoId
+      }
+    });
+    this.statistics(response.data.items[0].statistics);
+  };
+
+  statistics = statistics => {
+    this.setState({
+      ...this.state,
+      statistics: statistics
+    });
+  };
+
   handleSubmit = async searchFieldFromSearchBar => {
     if (
       this.state.searchFieldFromSearchBar === null ||
@@ -43,10 +63,12 @@ class App extends Component {
         (changed && searchFieldFromSearchBar !== undefined)
           ? {
               ...youtube.defaults.params,
+              part: "id,snippet",
               q: searchFieldFromSearchBar
             }
           : {
               ...youtube.defaults.params,
+              part: "id,snippet",
               pageToken: this.state.nextPageToken,
               q: this.state.searchFieldFromSearchBar
             }
@@ -57,22 +79,30 @@ class App extends Component {
       nextPageToken: response.data.nextPageToken
     });
   };
+
   handleVideoSelect = video => {
+    this.handleStatistics(video);
     this.setState({ selectedVideo: video });
   };
 
   resetVideo = async () => {
     this.setState({
       ...this.state,
+      statistics: {},
       selectedVideo: null
     });
   };
   render() {
+    if (this.state.videos.length > 0 && this.state.statistics === {}) {
+      setInterval(this.animation(), 500);
+      console.log("aqui");
+    }
     return (
-      <div>
+      <div className="view">
         {this.state.selectedVideo ? (
           <div className="eleven wide column">
             <VideoDetail
+              statistics={this.state.statistics}
               resetVideo={this.resetVideo}
               video={this.state.selectedVideo}
             />

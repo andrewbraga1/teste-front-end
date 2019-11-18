@@ -1,3 +1,18 @@
+#Para Rodar este projeto:
+- Faça um clone na sua máquina
+- Tenha nodeJs, reactJs, e Packager manager(npm ou yarn)
+- Acesse diretorio do projeto, e instale os pacotes e dependencias(npm install/yarn install)
+- Rode o projeto com npm start/yarn start
+- Utilize o app
+
+obs:Após o limite de requisições diário, a request dão retorno 403. Logo essa api Key so será válida por 10 dias a contar da data de 17/11/2019 ou até esse limite. Ou você pode gerar sua api key e utilizá como necessário.
+
+Author: Andrew Braga
+
+
+
+
+
 # Teste iCasei: Front-End
 Desenvolver uma aplicação HTML5
 

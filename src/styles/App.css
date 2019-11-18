@@ -1,3 +1,23 @@
+@media only screen and (min-width: 600px) {
+  html {
+    margin-left: 3vw!important;
+  }
+  input{
+    width: 50vw!important;
+  }
+  iframe{
+    width: 45vw;
+  }
+  .detail{
+    margin-left: 1vw!important;
+    margin-right: 1vw!important;
+}
+.specifics {
+  padding-left: 18vw!important;
+  margin-right: 1vw;
+  display: flex;
+}
+}
 .App {
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
@@ -5,6 +25,7 @@
 .search-bar{
   margin: auto auto;
   margin-bottom: 2vh;
+  width: fit-content;
 }
 .width{
   width:30vw;
@@ -37,7 +58,9 @@ li{
   font-size:50px;
   margin: 35vw;
 }
-
+.view{
+  margin-left: -4vw;
+}
 /* ########################################################### */
 
 /*!
